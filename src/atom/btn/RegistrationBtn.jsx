@@ -4,7 +4,7 @@ import { BaseBtn } from "./BaseBtn";
 export const RegistrationBtn = (props) => {
   const { children } = props;
   return(
-    <SregistrationBtn>{children}</SregistrationBtn>
+    <SregistrationBtn onClick={() => alert() }>{children}</SregistrationBtn>
   );
 };
 

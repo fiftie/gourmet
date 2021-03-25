@@ -1,14 +1,15 @@
 import React from 'react'
 import styled from "styled-components";
+import { FooterBtn } from '../atom/btn/FooterBtn';
 
 export const Footer = () => {
   return (
    <>
     <SFooter>
-      <SLink href="">全て</SLink>
-      <SLink href="">肉</SLink>
-      <SLink href="">魚</SLink>
-      <SLink href="">麺</SLink>
+      <FooterBtn>全て</FooterBtn>
+      <FooterBtn>肉</FooterBtn>
+      <FooterBtn>魚</FooterBtn>
+      <FooterBtn>麺</FooterBtn>
     </SFooter>
    </>
   )
@@ -22,12 +23,4 @@ const SFooter = styled.footer`
   justify-content: space-around;
   background-color: skyblue;
   width:100%;
-`
-
-const SLink = styled.a`
-  padding: 16px;
-  width:10%;
-  background-color: #fff;
-  text-align: center;
-  border-radius:10px;
 `

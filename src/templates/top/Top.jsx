@@ -4,7 +4,6 @@ import { MemoInput } from "../../molecule /input/MemoInput";
 import { NameInpiut } from "../../molecule /input/NameInpiut";
 import { Select } from "../../molecule /input/Select";
 import { Test } from "../../molecule /Test";
-import { Footer } from "../../organism/Footer";
 
 
 export const Top = () => {
@@ -21,7 +20,7 @@ export const Top = () => {
         <RegistrationBtn>登録</RegistrationBtn>
       </SWaku>
     </SSection>
-    <Footer />
+    
     </>
   )
 }
