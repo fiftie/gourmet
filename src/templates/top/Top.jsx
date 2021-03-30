@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import styled from "styled-components";
 import { RegistrationBtn } from "../../atom/btn/RegistrationBtn";
 import { MemoInput } from "../../molecule /input/MemoInput";
@@ -7,6 +8,8 @@ import { Test } from "../../molecule /Test";
 
 
 export const Top = () => {
+
+
   return(
     <>
     <SSection>

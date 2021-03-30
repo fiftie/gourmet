@@ -1,9 +1,17 @@
+import React, { useState } from "react";
 import styled from "styled-components";
 
 export const BaseInput = (props) => {
   const { placeholder = "" } = props;
+
+  const [todoText, setTodoText] = useState("");
+  const onChangeTodo =(e) => setTodoText(e.target.value);
+  console.log(todoText);
+
   return(
-    <SInput type="text" placeholder={placeholder}/>
+    <>
+      <SInput type="text" placeholder={placeholder} value={todoText} onChange={onChangeTodo} />
+    </>
   )
 }
 

@@ -1,14 +1,12 @@
 import React from "react";
-import "./style.css";
-import { TopPage } from "./pages/TopPage";
-import { Router } from "react-router";
+import "./style/global.css";
+import { Routers } from "./router/Routers";
 
 
 export const App = () => {
   return(
     <>
-      {/* <Router /> */}
-      <TopPage />
+      <Routers />
     </>
   )
 }
