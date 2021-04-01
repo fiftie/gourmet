@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useContext } from "react";
 
 export const InputContext = createContext({});
 
@@ -6,7 +6,7 @@ export const InputProvider = (props) => {
   const { children } = props;
   const [todoText, setTodoText] = useState("");
   const onChangeTodo =(e) => setTodoText(e.target.value);
-  const [allState, setAllState] = useState(["aiuoooo"]);
+  const [allState, setAllState] = useState([]);
 
   const onClickAdd = () => {
     const newAllState = [...allState, todoText];

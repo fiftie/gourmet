@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { InputContext } from "../../provider/InputProvider";
 
 export const BaseInput = (props) => {
-  const { todoText, onChangeTodo} = useContext(InputContext);
+  const { todoText, onChangeTodo, onClickAdd} = useContext(InputContext);
   const { placeholder } = props;
 
   console.log(todoText);

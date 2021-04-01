@@ -6,8 +6,9 @@ import { BaseBtn } from "./BaseBtn";
 export const RegistrationBtn = (props) => {
   const { children } = props;
   const { onClickAdd } = useContext(InputContext);
+  console.log(onClickAdd);
   return(
-    <SregistrationBtn onClick={() => onClickAdd }>{children}</SregistrationBtn>
+    <SregistrationBtn onClick={() => onClickAdd() }>{children}</SregistrationBtn>
   );
 };
 

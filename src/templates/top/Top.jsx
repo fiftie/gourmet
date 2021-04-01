@@ -9,7 +9,6 @@ import { Test } from "../../molecule /Test";
 
 export const Top = () => {
   
-  
   return(
     <>
     <SSection>
