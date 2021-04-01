@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
 import testimg from "../../image/Gourmet.jpeg";
 import styled from "styled-components";
-import { AllContext } from "../../providers/AllProvider";
+import { InputContext } from "../../provider/InputProvider";
 
 export const All = () => {
-  const [allState, setAllState] = useState(["aiueo"]);
+  const {allState, setAllState } = useContext(InputContext);
   return (
     <SUl>
       {

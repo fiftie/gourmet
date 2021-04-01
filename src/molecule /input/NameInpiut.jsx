@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 
 export const NameInpiut = (props) => {
-  const { text, placeholder} = props;
+  const { text, placeholder } = props;
 
   return(
     <>

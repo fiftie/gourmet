@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { InputContext } from "../../provider/InputProvider";
 
 export const BaseInput = (props) => {
-  const { placeholder = "" } = props;
+  const { todoText, onChangeTodo} = useContext(InputContext);
+  const { placeholder } = props;
 
-  const [todoText, setTodoText] = useState("");
-  const onChangeTodo =(e) => setTodoText(e.target.value);
   console.log(todoText);
 
   return(
