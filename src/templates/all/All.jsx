@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import testimg from "../../image/Gourmet.jpeg";
 import styled from "styled-components";
 import { InputContext } from "../../provider/InputProvider";
@@ -13,6 +13,7 @@ export const All = () => {
             <SLi key={todo}>
               <img src={testimg} />
               <h3>{todo}</h3>
+              <p></p>
             </SLi>
           )
         })
@@ -22,6 +23,7 @@ export const All = () => {
 }
 
 const SUl = styled.ul`
+  padding-bottom:100px;
 `
 const SLi = styled.li`
   margin: 20px auto;

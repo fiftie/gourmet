@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { RegistrationBtn } from "../../atom/btn/RegistrationBtn";
 import { MemoInput } from "../../molecule /input/MemoInput";
 import { NameInpiut } from "../../molecule /input/NameInpiut";
+import { NameInpiut2 } from "../../molecule /input/NameInpiut";
 import { Select } from "../../molecule /input/Select";
 import { Test } from "../../molecule /Test";
 
@@ -15,8 +16,8 @@ export const Top = () => {
       <Test />
       <SWaku>
         <NameInpiut text="店名" placeholder="店名" />
-        {/* <NameInpiut text="電話番号" placeholder="090-000-999" />
-        <NameInpiut text="住所" placeholder="東京都○○○" /> */}
+        <NameInpiut2 text="電話番号" placeholder="090-000-999" />
+        {/* <NameInpiut text="住所" placeholder="東京都○○○" /> */}
         <MemoInput text="メモ" placeholder="メモ"></MemoInput>
         <Select category1="肉" category2="魚" category3="麺" text="カテゴリー"></Select>
         <RegistrationBtn>登録</RegistrationBtn>
