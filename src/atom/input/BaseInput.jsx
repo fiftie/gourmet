@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext , useState} from "react";
 import styled from "styled-components";
 import { InputContext } from "../../provider/InputProvider";
 
@@ -6,22 +6,25 @@ export const BaseInput = (props) => {
   const { todoText, onChangeTodo} = useContext(InputContext);
   const { placeholder } = props;
 
+  
   return(
     <>
-      <SInput type="text" placeholder={placeholder} value={todoText} onChange={onChangeTodo} />
+      <SInput type="text" placeholder={placeholder} name="todoText" onChange={onChangeTodo} />
     </>
   )
 }
 
 
 export const BaseInput2 = (props) => {
-  const { tellText, onChangeTell} = useContext(InputContext);
+  const { tellText, onChangeTodo, answer, setAnswer} = useContext(InputContext);
   const { placeholder } = props;
-
+  
+  console.log(answer)
 
   return(
     <>
-      <SInput type="text" placeholder={placeholder} value={tellText} onChange={onChangeTell} />
+      <SInput type="text" placeholder={placeholder} name="tellText" onChange={(e) => {setAnswer({ ...answer, tel: e.target.value })}} />
+      <SInput type="text" placeholder={placeholder} name="tellText" onChange={(e) => {setAnswer({ ...answer, name: e.target.value })}} />
     </>
   )
 }

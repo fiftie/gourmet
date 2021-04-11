@@ -4,41 +4,29 @@ export const InputContext = createContext({});
 
 export const InputProvider = (props) => {
   const { children } = props;
-  const [todoText, setTodoText] = useState("");
-  const [tellText, setTellText] = useState("");
-  const onChangeTodo = (e) => setTodoText(e.target.value);
-  const onChangeTell = (e) => setTellText(e.target.value);
   const [allState, setAllState] = useState([]);
+  const [sendData, setSendData] = useState({name: "", tel: "", detail: ""})
 
-  // const store = {
-  //  name: todoText,
-  //  tell: tellText
-  // }
-
-  // console.log(store);
+  console.log("sendData",sendData)
 
   const onClickAdd = () => {
-    if(todoText === "") return
-    const newAllState = [...allState, todoText];
+    if(sendData === "") return;
+    const newAllState = [...allState, sendData];
     setAllState(newAllState);
-    setTodoText("");
+    setSendData("");
   }
 
-  const onClickTell = () => {
-    if(tellText === "") return;
-    const newTellState = [...allState, tellText];
-    setAllState(newTellState);
-    setTellText("");
-  }
+  
 
-  const onClickAllText = () => {
-    onClickAdd();
-    onClickTell();
-  }
-
+  const testObj = {
+    name: "test1",
+    tel: "test2",
+    detail: "test13"
+  } 
+  
 
   return(
-    <InputContext.Provider value={{ todoText, setTodoText, onChangeTodo, allState, setAllState, tellText, setTellText, onChangeTell, onClickAllText }} >
+    <InputContext.Provider value={{allState, setAllState, onClickAdd, sendData, setSendData, testObj }} >
       { children }
     </InputContext.Provider>
   )
