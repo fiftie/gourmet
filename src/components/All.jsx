@@ -6,13 +6,12 @@ import { Header } from "../organism/Header";
 import { Footer } from "../organism/Footer";
 
 export const All = () => {
-  const { allState, testObj } = useContext(InputContext);
-  console.log("all2",allState)
-  console.log("All.jsx-testObj",testObj);
+  const { allState } = useContext(InputContext);
+  
   return (
     <>
     <Header />
-    <h2>全て</h2>
+    <SH2>全て</SH2>
     <SUl>
       {
         allState.map((todo, i) => {
@@ -31,6 +30,16 @@ export const All = () => {
     </>
   )
 }
+
+const SH2 = styled.h2`
+  margin: 0 auto;
+  padding: 16px;
+  text-align: center;
+  background-color: skyblue;
+  border-radius:10px;
+  font-size:30px;
+  width:18%;
+`
 
 const SUl = styled.ul`
   padding-bottom:100px;

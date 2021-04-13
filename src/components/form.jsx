@@ -1,27 +1,31 @@
 import React, { useState, useContext } from 'react'
 import styled from "styled-components";
+import { Header } from '../organism/Header'
+import { Footer } from '../organism/Footer'
 import { InputContext } from '../provider/InputProvider';
 
 export const Form = () => {
-  const { allState, onClickAdd, sendData, setSendData, testObj } = useContext(InputContext);
+  const {onClickAdd} = useContext(InputContext);
 
-  console.log("form.jsx",sendData);
-  console.log("form-testObj",testObj);
-
+  const [ name, setName ] = useState("");
+  const [ tel, setTel ] = useState("");
+  const [ detail, setDetail ] = useState("");
 
   return (
-    <div>
-       <SH2>登録画面</SH2>
-      <SForm>
-        <label>店名</label>
-        <input placeholder="店名" onChange={(e) => {setSendData({ ...allState, name: e.target.value })}}/>
-        <label>電話番号</label>
-        <input placeholder="電話番号" onChange={(e) => {setSendData({ ...allState, tel: e.target.value })}}/>
-        <label>メモ</label>
-        <textarea placeholder="メモ" onChange={(e) => {setSendData({ ...allState, detail: e.target.value })}}/>
-        <button type="button" onClick={() => onClickAdd() }>登録</button>
-      </SForm>
-    </div>
+    <>
+    <Header />
+    <SH2>登録画面</SH2>
+    <SForm>
+      <label>店名</label>
+      <input placeholder="店名" name="name" value={name} onChange={(e) => {setName(e.target.value )}}/>
+      <label>電話番号</label>
+      <input placeholder="電話番号" name="tel" value={tel} onChange={(e) => {setTel(e.target.value )}}/>
+      <label>メモ</label>
+      <textarea placeholder="メモ" name="detail" value={detail} onChange={(e) => {setDetail(e.target.value)}} />
+      <button type="button" onClick={() => onClickAdd(name,tel,detail) }>登録</button>
+    </SForm>
+    <Footer />
+    </>
   )
 }
 const SH2 = styled.h2`
