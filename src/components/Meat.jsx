@@ -35,9 +35,11 @@ const SH2 = styled.h2`
   margin: 0 auto;
   padding: 16px;
   text-align: center;
-  background-color: skyblue;
+  background-color: #f08137;
   border-radius:10px;
   font-size:30px;
+  font-weight: bold;
+  color: #333;
   width:18%; 
 `
 const SUl = styled.ul`

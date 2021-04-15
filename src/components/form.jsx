@@ -13,8 +13,6 @@ export const Form = () => {
   const [memo, setMemo] = useState("");
   const [category, setCategory] = useState("");
 
-  console.log("category", category);
-
   return (
     <>
     <Header />
@@ -31,7 +29,7 @@ export const Form = () => {
         <option value="">カテゴリー選択</option>
         <option value="meat">肉</option>
         <option value="fish">魚</option>
-        <option value="noodles">麺</option>
+        <option value="noodle">麺</option>
       </select>
       <label>メモ</label>
       <textarea placeholder="メモ" value={memo} onChange={(e) => {setMemo(e.target.value)}}></textarea>

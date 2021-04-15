@@ -6,6 +6,8 @@ export const InputProvider = (props) => {
   const { children } = props;
   const [allState, setAllState] = useState([]);
   const [meatState, setMeatState] = useState([]);
+  const [fishState, setFishState] = useState([]);
+  const [noodleState, setNoodleState] = useState([]);
 
   const onClickAdd = (name,tel,streetAddress,setName,setTel,setStreetAddress, memo,setMemo, category,setCategory) => {
     if(name === "") {
@@ -18,16 +20,39 @@ export const InputProvider = (props) => {
       streetAddress: streetAddress,
       memo: memo
     }]);
+    if(category === "meat"){
+      setMeatState([...meatState, {
+        name: name,
+        tel: tel,
+        streetAddress: streetAddress,
+        memo: memo
+      }]);
+    }
+    if(category === "fish"){
+      setFishState([...fishState, {
+        name: name,
+        tel: tel,
+        streetAddress: streetAddress,
+        memo: memo
+      }]);
+    }
+    if(category === "noodle"){
+      setNoodleState([...noodleState, {
+        name: name,
+        tel: tel,
+        streetAddress: streetAddress,
+        memo: memo
+      }]);
+    }
     setName("");
     setTel("");
     setStreetAddress("");
     setMemo("");
     setCategory("");
-    console.log("category--onclick", category);
   }
 
   return(
-    <InputContext.Provider value={{onClickAdd, allState, setAllState, meatState, setMeatState}} >
+    <InputContext.Provider value={{onClickAdd, allState, setAllState, meatState, setMeatState,fishState, setFishState,noodleState, setNoodleState}} >
       { children }
     </InputContext.Provider>
   )

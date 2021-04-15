@@ -8,8 +8,8 @@ export const Footer = () => {
     <SFooter>
       <SLink to="/all"><SBtn>全て</SBtn></SLink>
       <SLink to="/meat"><SBtn>肉</SBtn></SLink>
-      <SLink to="/all"><SBtn>魚</SBtn></SLink>
-      <SLink to="/all"><SBtn>麺</SBtn></SLink>
+      <SLink to="/fish"><SBtn>魚</SBtn></SLink>
+      <SLink to="/noodle"><SBtn>麺</SBtn></SLink>
     </SFooter>
    </>
   )

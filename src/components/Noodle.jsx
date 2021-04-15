@@ -1,20 +1,19 @@
 import React, { useContext } from "react";
-import testimg from "../image/Gourmet.jpeg";
 import styled from "styled-components";
+import testimg from "../image/Gourmet.jpeg";
+import { Footer } from '../organism/Footer'
+import { Header } from '../organism/Header'
 import { InputContext } from "../provider/InputProvider";
-import { Header } from "../organism/Header";
-import { Footer } from "../organism/Footer";
 
-export const All = () => {
-  const { allState } = useContext(InputContext);
-
+export const Noodle = () => {
+  const { noodleState } = useContext(InputContext);
   return (
     <>
-    <Header />
-    <SH2>全て</SH2>
-    <SUl>
-      {
-        allState.map((todo, i) => {
+      <Header />
+        <SH2>麺類</SH2>
+        <SUl>
+        {
+        noodleState.map((todo, i) => {
           return(
             <SLi key={i}>
               <img src={testimg} />
@@ -26,8 +25,8 @@ export const All = () => {
           )
         })
       }
-    </SUl>
-    <Footer />
+        </SUl>
+      <Footer />
     </>
   )
 }
@@ -36,14 +35,13 @@ const SH2 = styled.h2`
   margin: 0 auto;
   padding: 16px;
   text-align: center;
-  background-color: #fc7979;
+  background-color: #eb25b9;
   border-radius:10px;
   font-size:30px;
   font-weight: bold;
   color: #333;
-  width:18%;
+  width:18%; 
 `
-
 const SUl = styled.ul`
   padding-bottom:100px;
 `
