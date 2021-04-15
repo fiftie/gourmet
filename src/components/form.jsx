@@ -9,7 +9,11 @@ export const Form = () => {
 
   const [ name, setName ] = useState("");
   const [ tel, setTel ] = useState("");
-  const [ detail, setDetail ] = useState("");
+  const [ streetAddress, setStreetAddress ] = useState("");
+  const [memo, setMemo] = useState("");
+  const [category, setCategory] = useState("");
+
+  console.log("category", category);
 
   return (
     <>
@@ -17,12 +21,22 @@ export const Form = () => {
     <SH2>登録画面</SH2>
     <SForm>
       <label>店名</label>
-      <input placeholder="店名" name="name" value={name} onChange={(e) => {setName(e.target.value )}}/>
+      <input placeholder="店名" value={name} onChange={(e) => {setName(e.target.value )}}/>
       <label>電話番号</label>
-      <input placeholder="電話番号" name="tel" value={tel} onChange={(e) => {setTel(e.target.value )}}/>
+      <input placeholder="電話番号" value={tel} onChange={(e) => {setTel(e.target.value )}}/>
+      <label>住所</label>
+      <input placeholder="住所" value={streetAddress} onChange={(e) => {setStreetAddress(e.target.value)}} />
+      <label for="category">カテゴリー</label>
+      <select id="category" value={category} onChange={(e) => {setCategory(e.target.value)}}>
+        <option value="">カテゴリー選択</option>
+        <option value="meat">肉</option>
+        <option value="fish">魚</option>
+        <option value="noodles">麺</option>
+      </select>
       <label>メモ</label>
-      <textarea placeholder="メモ" name="detail" value={detail} onChange={(e) => {setDetail(e.target.value)}} />
-      <button type="button" onClick={() => onClickAdd(name,tel,detail) }>登録</button>
+      <textarea placeholder="メモ" value={memo} onChange={(e) => {setMemo(e.target.value)}}></textarea>
+
+      <button type="button" onClick={() => onClickAdd(name,tel,streetAddress,setName,setTel,setStreetAddress,memo,setMemo,category,setCategory) }>登録</button>
     </SForm>
     <Footer />
     </>
@@ -61,6 +75,13 @@ const SForm = styled.form`
     width:80%;
     height:120px;
     border: 1px solid #aaa;
+  }
+  select{
+    margin: 0 auto;
+    display: block;
+    background-color: #fff;
+    border: 1px solid #aaa;
+    width:80%;
   }
   button{
     margin: 20px auto;

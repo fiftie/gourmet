@@ -1,20 +1,19 @@
 import React, { useContext } from "react";
-import testimg from "../image/Gourmet.jpeg";
 import styled from "styled-components";
+import testimg from "../image/Gourmet.jpeg";
+import { Footer } from '../organism/Footer'
+import { Header } from '../organism/Header'
 import { InputContext } from "../provider/InputProvider";
-import { Header } from "../organism/Header";
-import { Footer } from "../organism/Footer";
 
-export const All = () => {
-  const { allState } = useContext(InputContext);
-
+export const Meat = () => {
+  const { meatState } = useContext(InputContext);
   return (
     <>
-    <Header />
-    <SH2>全て</SH2>
-    <SUl>
-      {
-        allState.map((todo, i) => {
+      <Header />
+        <SH2>肉類</SH2>
+        <SUl>
+        {
+        meatState.map((todo, i) => {
           return(
             <SLi key={i}>
               <img src={testimg} />
@@ -26,8 +25,8 @@ export const All = () => {
           )
         })
       }
-    </SUl>
-    <Footer />
+        </SUl>
+      <Footer />
     </>
   )
 }
@@ -39,9 +38,8 @@ const SH2 = styled.h2`
   background-color: skyblue;
   border-radius:10px;
   font-size:30px;
-  width:18%;
+  width:18%; 
 `
-
 const SUl = styled.ul`
   padding-bottom:100px;
 `
