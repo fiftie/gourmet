@@ -9,7 +9,7 @@ export const Header = () => {
     <SHeader>
       <SLogo src={testimg} />
       <SH1>グルメアプリ</SH1>
-      <SLink to="/">登録画面へ</SLink>
+      <SLink to="/gourmet">登録画面へ</SLink>
     </SHeader>
    </>
   )
