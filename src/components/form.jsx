@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Header } from '../organism/Header'
 import { Footer } from '../organism/Footer'
 import { InputContext } from '../provider/InputProvider';
+import { Image } from './Image';
 
 export const Form = () => {
   const {onClickAdd} = useContext(InputContext);
@@ -18,6 +19,7 @@ export const Form = () => {
     <Header />
     <SH2>登録画面</SH2>
     <SForm>
+      <Image />
       <label>店名</label>
       <input placeholder="店名" value={name} onChange={(e) => {setName(e.target.value )}}/>
       <label>電話番号</label>
