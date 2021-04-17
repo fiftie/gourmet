@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/react-pages/static/css/main.fe15e101.chunk.css",
-    "main.js": "/react-pages/static/js/main.2aea3e48.chunk.js",
-    "main.js.map": "/react-pages/static/js/main.2aea3e48.chunk.js.map",
-    "runtime-main.js": "/react-pages/static/js/runtime-main.8db3c5f4.js",
-    "runtime-main.js.map": "/react-pages/static/js/runtime-main.8db3c5f4.js.map",
-    "static/js/2.223af91e.chunk.js": "/react-pages/static/js/2.223af91e.chunk.js",
-    "static/js/2.223af91e.chunk.js.map": "/react-pages/static/js/2.223af91e.chunk.js.map",
-    "index.html": "/react-pages/index.html",
-    "static/css/main.fe15e101.chunk.css.map": "/react-pages/static/css/main.fe15e101.chunk.css.map",
-    "static/js/2.223af91e.chunk.js.LICENSE.txt": "/react-pages/static/js/2.223af91e.chunk.js.LICENSE.txt",
-    "static/media/Gourmet.16a74196.jpeg": "/react-pages/static/media/Gourmet.16a74196.jpeg"
+    "main.css": "/gourmet/static/css/main.608a83ad.chunk.css",
+    "main.js": "/gourmet/static/js/main.cebbd13a.chunk.js",
+    "main.js.map": "/gourmet/static/js/main.cebbd13a.chunk.js.map",
+    "runtime-main.js": "/gourmet/static/js/runtime-main.0da6e0e2.js",
+    "runtime-main.js.map": "/gourmet/static/js/runtime-main.0da6e0e2.js.map",
+    "static/js/2.4be1991f.chunk.js": "/gourmet/static/js/2.4be1991f.chunk.js",
+    "static/js/2.4be1991f.chunk.js.map": "/gourmet/static/js/2.4be1991f.chunk.js.map",
+    "index.html": "/gourmet/index.html",
+    "static/css/main.608a83ad.chunk.css.map": "/gourmet/static/css/main.608a83ad.chunk.css.map",
+    "static/js/2.4be1991f.chunk.js.LICENSE.txt": "/gourmet/static/js/2.4be1991f.chunk.js.LICENSE.txt",
+    "static/media/Gourmet.16a74196.jpeg": "/gourmet/static/media/Gourmet.16a74196.jpeg"
   },
   "entrypoints": [
-    "static/js/runtime-main.8db3c5f4.js",
-    "static/js/2.223af91e.chunk.js",
-    "static/css/main.fe15e101.chunk.css",
-    "static/js/main.2aea3e48.chunk.js"
+    "static/js/runtime-main.0da6e0e2.js",
+    "static/js/2.4be1991f.chunk.js",
+    "static/css/main.608a83ad.chunk.css",
+    "static/js/main.cebbd13a.chunk.js"
   ]
 }
