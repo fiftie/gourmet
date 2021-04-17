@@ -10,7 +10,7 @@ export const Routers = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" >
+        <Route exact path="/gourmet" >
           <Form />
         </Route>
         <Route path="/all">
