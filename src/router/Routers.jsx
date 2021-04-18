@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import { Form } from '../components/form'
+import { Form } from '../components/Form'
 import { All } from '../components/All'
 import { Meat } from '../components/Meat'
 import { Fish } from '../components/Fish'
