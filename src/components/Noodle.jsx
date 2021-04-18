@@ -6,7 +6,14 @@ import { Header } from '../organism/Header'
 import { InputContext } from "../provider/InputProvider";
 
 export const Noodle = () => {
-  const { noodleState } = useContext(InputContext);
+  const { noodleState, setNoodleState } = useContext(InputContext);
+
+  const onClickDelete = (i) => {
+    const newNoodleState = [...noodleState];
+    newNoodleState.splice(i,1);
+    setNoodleState(newNoodleState);
+  }
+
   return (
     <>
       <Header />
@@ -21,6 +28,7 @@ export const Noodle = () => {
               <p>{todo.tel}</p>
               <p>{todo.streetAddress}</p>
               <p>{todo.memo}</p>
+              <SBtn onClick={() => onClickDelete(i)}>削除</SBtn>
             </SLi>
           )
         })
@@ -60,4 +68,14 @@ const SLi = styled.li`
     font-size: 28px;
     width:50%;
   }
+`
+
+const SBtn = styled.button`
+  padding: 16px 0;
+  display: block;
+  background-color:#fff;
+  box-shadow: 0 4px 0 #d8d8d8;
+  border-radius: 10px;
+  width: 10%;
+  text-align: center;
 `

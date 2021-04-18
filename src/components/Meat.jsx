@@ -4,9 +4,17 @@ import testimg from "../image/Gourmet.jpeg";
 import { Footer } from '../organism/Footer'
 import { Header } from '../organism/Header'
 import { InputContext } from "../provider/InputProvider";
+import Dialog from '@material-ui/core/Dialog';
 
 export const Meat = () => {
-  const { meatState } = useContext(InputContext);
+  const { meatState, setMeatState } = useContext(InputContext);
+
+  const onClickDelete = (i) => {
+    const newMeatState = [...meatState];
+    newMeatState.splice(i,1);
+    setMeatState(newMeatState);
+  }
+
   return (
     <>
       <Header />
@@ -21,6 +29,7 @@ export const Meat = () => {
               <p>{todo.tel}</p>
               <p>{todo.streetAddress}</p>
               <p>{todo.memo}</p>
+              <SBtn onClick={() => onClickDelete(i) }>削除</SBtn>
             </SLi>
           )
         })
@@ -60,4 +69,13 @@ const SLi = styled.li`
     font-size: 28px;
     width:50%;
   }
+`
+const SBtn = styled.button`
+  padding: 16px 0;
+  display: block;
+  background-color:#fff;
+  box-shadow: 0 4px 0 #d8d8d8;
+  border-radius: 10px;
+  width: 10%;
+  text-align: center;
 `

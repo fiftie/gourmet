@@ -6,7 +6,13 @@ import { Header } from "../organism/Header";
 import { Footer } from "../organism/Footer";
 
 export const All = () => {
-  const { allState } = useContext(InputContext);
+  const { allState, setAllState } = useContext(InputContext);
+
+  const onClickDelete = (i) => {
+    const newAllState = [...allState];
+    newAllState.splice(i,1);
+    setAllState(newAllState);
+  }
 
   return (
     <>
@@ -22,6 +28,7 @@ export const All = () => {
               <p>{todo.tel}</p>
               <p>{todo.streetAddress}</p>
               <p>{todo.memo}</p>
+              <SBtn onClick={() => onClickDelete(i)}>削除</SBtn>
             </SLi>
           )
         })
@@ -62,4 +69,14 @@ const SLi = styled.li`
     font-size: 28px;
     width:50%;
   }
+`
+
+const SBtn = styled.button`
+  padding: 16px 0;
+  display: block;
+  background-color:#fff;
+  box-shadow: 0 4px 0 #d8d8d8;
+  border-radius: 10px;
+  width: 10%;
+  text-align: center;
 `
