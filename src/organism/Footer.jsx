@@ -6,16 +6,17 @@ export const Footer = () => {
   return (
    <>
     <SFooter>
-      <SLink to="/all"><SBtn>全て</SBtn></SLink>
-      <SLink to="/meat"><SBtn>肉</SBtn></SLink>
-      <SLink to="/fish"><SBtn>魚</SBtn></SLink>
-      <SLink to="/noodle"><SBtn>麺</SBtn></SLink>
+      <SLink to="/all"><button className="baseBtn">全て</button></SLink>
+      <SLink to="/meat"><button className="baseBtn">肉</button></SLink>
+      <SLink to="/fish"><button className="baseBtn">魚</button></SLink>
+      <SLink to="/noodle"><button className="baseBtn">麺</button></SLink>
     </SFooter>
    </>
   )
 }
 
 const SFooter = styled.footer`
+  margin: 0 auto;
   padding:20px;
   position: fixed;
   bottom: 0;
@@ -23,19 +24,17 @@ const SFooter = styled.footer`
   justify-content: space-around;
   background-color: skyblue;
   width:100%;
-`
-
-const SBtn = styled.button`
-  padding: 16px 0;
-  display: block;
-  background-color:#fff;
-  box-shadow: 0 4px 0 #d8d8d8;
-  border-radius: 10px;
-  width: 80%;
-  text-align: center;
+  max-width: 1440px;
 `
 
 const SLink = styled(Link)`
   display:block;
   width: 10%;
+  @media screen and (max-width: 768px){
+    font-size: 14px;
+  }
+  @media screen and (max-width: 375px){
+    width:18%;
+    font-size: 12px;
+  }
 `

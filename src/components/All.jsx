@@ -49,6 +49,12 @@ const SH2 = styled.h2`
   font-weight: bold;
   color: #333;
   width:18%;
+  @media screen and (max-width: 768px){
+    width: 30%;
+  }
+  @media screen and (max-width: 768px){
+    font-size:24px;
+  }
 `
 
 const SUl = styled.ul`
@@ -61,6 +67,12 @@ const SLi = styled.li`
   align-items: center;
   background-color: gray;
   width:50%;
+  @media screen and (max-width: 768px){
+    width: 80%;
+  }
+  @media screen and (max-width: 425px){
+    width: 90%;
+  }
 
   img{
     width:16%;
@@ -79,4 +91,13 @@ const SBtn = styled.button`
   border-radius: 10px;
   width: 10%;
   text-align: center;
+  @media screen and (max-width: 768px){
+    padding: 10px 0;
+    width: 20%;
+  }
+  @media screen and (max-width: 320px){
+    padding: 6px 0;
+    width: 20%;
+    font-size:12px;
+  }
 `

@@ -15,7 +15,7 @@ export const Form = () => {
   const [category, setCategory] = useState("");
 
   return (
-    <Swaku>
+    <SLayout>
     <Header />
     <SH2>登録画面</SH2>
     <SForm>
@@ -39,10 +39,10 @@ export const Form = () => {
       <button type="button" onClick={() => onClickAdd(name,tel,streetAddress,setName,setTel,setStreetAddress,memo,setMemo,category,setCategory) }>登録</button>
     </SForm>
     <Footer />
-    </Swaku>
+    </SLayout>
   )
 }
-const Swaku = styled.div`
+const SLayout = styled.div`
   margin: 0 auto;
   width:100%;
   max-width:1440px;
@@ -52,6 +52,9 @@ const Swaku = styled.div`
 const SH2 = styled.h2`
   font-size:40px;
   text-align:center;
+  @media screen and (max-width: 425px){
+    font-size:30px;
+  }
 `
 
 const SForm = styled.form`
@@ -61,6 +64,9 @@ const SForm = styled.form`
   display: block;
   background-color: #e6e6e6;
   width: 60%;
+  @media screen and (max-width: 768px){
+    width: 90%;
+  }
   label{
     margin-top:20px;
     margin: auto;
