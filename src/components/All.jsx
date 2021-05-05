@@ -4,6 +4,10 @@ import styled from "styled-components";
 import { InputContext } from "../provider/InputProvider";
 import { Header } from "../organism/Header";
 import { Footer } from "../organism/Footer";
+import { useDisclosure } from "@chakra-ui/react";
+import { DetailsModal } from "../organism/DetailsModal";
+
+
 
 export const All = () => {
   const { allState, setAllState } = useContext(InputContext);
@@ -14,6 +18,9 @@ export const All = () => {
     setAllState(newAllState);
   }
 
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+
   return (
     <>
     <Header />
@@ -22,8 +29,8 @@ export const All = () => {
       {
         allState.map((todo, i) => {
           return(
-            <SLi key={i}>
-              <img src={testimg} />
+            <SLi key={i} onClick={onOpen}>
+              <img src={testimg} alt="イメージ画像" />
               <h3>{todo.name}</h3>
               <p>{todo.tel}</p>
               <p>{todo.streetAddress}</p>
@@ -35,6 +42,7 @@ export const All = () => {
       }
     </SUl>
     <Footer />
+    <DetailsModal isOpen={isOpen} onClose={onClose} />
     </>
   )
 }

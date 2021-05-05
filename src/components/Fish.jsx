@@ -24,7 +24,7 @@ export const Fish = () => {
         fishState.map((todo, i) => {
           return(
             <SLi key={i}>
-              <img src={testimg} />
+              <img src={testimg} alt="イメージ画像" />
               <h3>{todo.name}</h3>
               <p>{todo.tel}</p>
               <p>{todo.streetAddress}</p>
