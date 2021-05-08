@@ -6,11 +6,14 @@ import { Header } from "../organism/Header";
 import { Footer } from "../organism/Footer";
 import { useDisclosure } from "@chakra-ui/react";
 import { DetailsModal } from "../organism/DetailsModal";
-
-
+import { useSelect } from "../hooks/useSelect";
 
 export const All = () => {
   const { allState, setAllState } = useContext(InputContext);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { onSelectState, selectedState } = useSelect();
+  console.log("All.jsx--selectedState",selectedState);
+  console.log("All.jsx--allState",allState);
 
   const onClickDelete = (i) => {
     const newAllState = [...allState];
@@ -18,7 +21,9 @@ export const All = () => {
     setAllState(newAllState);
   }
 
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const onClickOpen = (i) => {
+    onSelectState({ allState, i, onOpen });
+  }
 
 
   return (
@@ -29,7 +34,7 @@ export const All = () => {
       {
         allState.map((todo, i) => {
           return(
-            <SLi key={i} onClick={onOpen}>
+            <SLi key={i} onClick={() => onClickOpen(i)}>
               <img src={testimg} alt="イメージ画像" />
               <h3>{todo.name}</h3>
               <p>{todo.tel}</p>

@@ -4,7 +4,6 @@ import testimg from "../image/Gourmet.jpeg";
 import { Footer } from '../organism/Footer'
 import { Header } from '../organism/Header'
 import { InputContext } from "../provider/InputProvider";
-import Dialog from '@material-ui/core/Dialog';
 
 export const Meat = () => {
   const { meatState, setMeatState } = useContext(InputContext);

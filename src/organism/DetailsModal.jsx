@@ -1,35 +1,30 @@
 import { Modal, ModalOverlay, ModalContent,  ModalHeader, ModalCloseButton, ModalBody, Stack, FormControl, FormLabel, Input } from "@chakra-ui/react";
 
-
-
-
 export const DetailsModal = (props) => {
-
   const { isOpen, onClose } = props;
-
   return(
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
-      <ModalContent>
-        <ModalHeader>詳細</ModalHeader>
-        <ModalCloseButton />
+      <ModalContent className="modal">
+        <ModalCloseButton className="modal__btn"/>
+        <ModalHeader className="modal__details">詳細</ModalHeader>
         <ModalBody>
           <Stack>
             <FormControl>
-              <FormLabel>店名</FormLabel>
-              <Input value="店名" isReadOnly />
+              <FormLabel className="modal__label">店名</FormLabel>
+              <Input className="modal__input" value="test" isReadOnly />
             </FormControl>
             <FormControl>
-              <FormLabel>電話番号</FormLabel>
-              <Input value="電話番号" isReadOnly />
+              <FormLabel className="modal__label">電話番号</FormLabel>
+              <Input className="modal__input" value="test" isReadOnly />
             </FormControl>
             <FormControl>
-              <FormLabel>住所</FormLabel>
-              <Input value="住所" isReadOnly />
+              <FormLabel className="modal__label">住所</FormLabel>
+              <Input className="modal__input" value="test" isReadOnly />
             </FormControl>
             <FormControl>
-              <FormLabel>メモ</FormLabel>
-              <Input value="メモ" isReadOnly />
+              <FormLabel className="modal__label">メモ</FormLabel>
+              <Input className="modal__input" value="test" isReadOnly />
             </FormControl>
           </Stack>
         </ModalBody>
@@ -37,3 +32,4 @@ export const DetailsModal = (props) => {
     </Modal>
   )
 }
+

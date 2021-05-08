@@ -472,3 +472,36 @@ template {
   transform: translateY(3px);
   box-shadow: 0 0 0;
 }
+
+.modal {
+  margin: auto auto;
+  padding: 14px;
+  display: block;
+  background-color: #fcfbfb;
+  box-shadow: 10px 10px 20px black;
+  width: 60% !important;
+  height: 600px;
+}
+
+.modal__details {
+  font-size: 26px;
+  text-align: center;
+}
+
+.modal__btn {
+  margin-left: auto;
+  width: 10%;
+}
+
+.modal__input {
+  margin: 0 auto;
+  display: block;
+  border: 1px solid black;
+  width: 80%;
+}
+
+.modal__label {
+  margin: 10px auto;
+  width: 80%;
+  font-size: 20px;
+}
