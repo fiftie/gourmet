@@ -15,6 +15,7 @@ export const InputProvider = (props) => {
       return
     };
     setAllState([...allState, {
+      id: allState.length,
       name: name,
       tel: tel,
       streetAddress: streetAddress,

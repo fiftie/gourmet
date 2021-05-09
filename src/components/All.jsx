@@ -12,8 +12,7 @@ export const All = () => {
   const { allState, setAllState } = useContext(InputContext);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { onSelectState, selectedState } = useSelect();
-  console.log("All.jsx--selectedState",selectedState);
-  console.log("All.jsx--allState",allState);
+  
 
   const onClickDelete = (i) => {
     const newAllState = [...allState];
@@ -47,7 +46,7 @@ export const All = () => {
       }
     </SUl>
     <Footer />
-    <DetailsModal isOpen={isOpen} onClose={onClose} />
+    <DetailsModal isOpen={isOpen} onClose={onClose} allState={allState} selectedState={selectedState} />
     </>
   )
 }
