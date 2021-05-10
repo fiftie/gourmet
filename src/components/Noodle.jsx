@@ -1,17 +1,26 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import testimg from "../image/Gourmet.jpeg";
+import { DetailsModal } from "../organism/DetailsModal";
 import { Footer } from '../organism/Footer'
 import { Header } from '../organism/Header'
 import { InputContext } from "../provider/InputProvider";
+import { useDisclosure } from "@chakra-ui/react";
+import { useNoodleSelect } from "../hooks/useSelect";
 
 export const Noodle = () => {
   const { noodleState, setNoodleState } = useContext(InputContext);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { onSelectState, selectedState } = useNoodleSelect();
 
   const onClickDelete = (i) => {
     const newNoodleState = [...noodleState];
     newNoodleState.splice(i,1);
     setNoodleState(newNoodleState);
+  }
+
+  const onClickOpen = (i) => {
+    onSelectState({ noodleState, i, onOpen });
   }
 
   return (
@@ -22,7 +31,7 @@ export const Noodle = () => {
         {
         noodleState.map((todo, i) => {
           return(
-            <SLi key={i}>
+            <SLi key={i} onClick={() => onClickOpen(i)}>
               <img src={testimg} alt="イメージ画像" />
               <h3>{todo.name}</h3>
               <p>{todo.tel}</p>
@@ -35,6 +44,7 @@ export const Noodle = () => {
       }
         </SUl>
       <Footer />
+      <DetailsModal isOpen={isOpen} onClose={onClose} noodleState={noodleState} selectedState={selectedState} />
     </>
   )
 }

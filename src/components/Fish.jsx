@@ -1,17 +1,26 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import testimg from "../image/Gourmet.jpeg";
+import { DetailsModal } from "../organism/DetailsModal";
 import { Footer } from '../organism/Footer'
 import { Header } from '../organism/Header'
 import { InputContext } from "../provider/InputProvider";
+import { useDisclosure } from "@chakra-ui/react";
+import { useFishSelect } from "../hooks/useSelect";
 
 export const Fish = () => {
   const { fishState, setFishState } = useContext(InputContext);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { onSelectState, selectedState } = useFishSelect();
 
   const onClickDelete = (i) => {
     const newFishState = [...fishState];
     newFishState.splice(i,1);
     setFishState(newFishState);
+  }
+
+  const onClickOpen = (i) => {
+    onSelectState({ fishState, i, onOpen });
   }
 
 
@@ -23,7 +32,7 @@ export const Fish = () => {
         {
         fishState.map((todo, i) => {
           return(
-            <SLi key={i}>
+            <SLi key={i} onClick={() => onClickOpen(i)}>
               <img src={testimg} alt="イメージ画像" />
               <h3>{todo.name}</h3>
               <p>{todo.tel}</p>
@@ -36,6 +45,7 @@ export const Fish = () => {
       }
         </SUl>
       <Footer />
+      <DetailsModal isOpen={isOpen} onClose={onClose} fishState={fishState} selectedState={selectedState} />
     </>
   )
 }

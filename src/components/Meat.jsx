@@ -1,18 +1,29 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import testimg from "../image/Gourmet.jpeg";
+import { DetailsModal } from "../organism/DetailsModal";
 import { Footer } from '../organism/Footer'
 import { Header } from '../organism/Header'
 import { InputContext } from "../provider/InputProvider";
+import { useDisclosure } from "@chakra-ui/react";
+import { useMeatSelect } from "../hooks/useSelect";
+
 
 export const Meat = () => {
   const { meatState, setMeatState } = useContext(InputContext);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { onSelectState, selectedState } = useMeatSelect();
 
   const onClickDelete = (i) => {
     const newMeatState = [...meatState];
     newMeatState.splice(i,1);
     setMeatState(newMeatState);
   }
+
+  const onClickOpen = (i) => {
+    onSelectState({ meatState, i, onOpen });
+  }
+
 
   return (
     <>
@@ -22,7 +33,7 @@ export const Meat = () => {
         {
         meatState.map((todo, i) => {
           return(
-            <SLi key={i}>
+            <SLi key={i} onClick={() => onClickOpen(i)}>
               <img src={testimg} alt="イメージ画像" />
               <h3>{todo.name}</h3>
               <p>{todo.tel}</p>
@@ -35,6 +46,7 @@ export const Meat = () => {
       }
         </SUl>
       <Footer />
+      <DetailsModal isOpen={isOpen} onClose={onClose} meatState={meatState} selectedState={selectedState} />
     </>
   )
 }

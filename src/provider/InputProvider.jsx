@@ -23,6 +23,7 @@ export const InputProvider = (props) => {
     }]);
     if(category === "meat"){
       setMeatState([...meatState, {
+        id: meatState.length,
         name: name,
         tel: tel,
         streetAddress: streetAddress,
@@ -31,6 +32,7 @@ export const InputProvider = (props) => {
     }
     if(category === "fish"){
       setFishState([...fishState, {
+        id: fishState.length,
         name: name,
         tel: tel,
         streetAddress: streetAddress,
@@ -39,6 +41,7 @@ export const InputProvider = (props) => {
     }
     if(category === "noodle"){
       setNoodleState([...noodleState, {
+        id: noodleState.length,
         name: name,
         tel: tel,
         streetAddress: streetAddress,
