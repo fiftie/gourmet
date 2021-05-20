@@ -29,7 +29,9 @@ export const DetailsModal = (props) => {
               <FormLabel className="modal__label">メモ</FormLabel>
               <Input className="modal__input" value={selectedState?.memo} isReadOnly />
             </FormControl>
-            <SBtn className="baseBtn">削除</SBtn>
+            <SBtnLayout>
+              <SBtn className="baseBtn">削除</SBtn>
+            </SBtnLayout>
           </Stack>
         </ModalBody>
       </ModalContent>
@@ -38,6 +40,12 @@ export const DetailsModal = (props) => {
 }
 
 const SBtn = styled.button`
+  margin:24px;
   background-color:#87ecdb;
-  box-shadow: 0 4px 0 #74cabc;;
+  box-shadow: 0 4px 0 #74cabc;
+  width:30%;
+`
+const SBtnLayout = styled.div`
+  display:flex;
+  justify-content:center;
 `
