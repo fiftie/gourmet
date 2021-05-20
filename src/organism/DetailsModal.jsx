@@ -1,5 +1,5 @@
 import { Modal, ModalOverlay, ModalContent,  ModalHeader, ModalCloseButton, ModalBody, Stack, FormControl, FormLabel, Input } from "@chakra-ui/react";
-
+import styled from "styled-components";
 
 export const DetailsModal = (props) => {
   const { isOpen, onClose,  selectedState } = props;
@@ -29,6 +29,7 @@ export const DetailsModal = (props) => {
               <FormLabel className="modal__label">メモ</FormLabel>
               <Input className="modal__input" value={selectedState?.memo} isReadOnly />
             </FormControl>
+            <SBtn className="baseBtn">削除</SBtn>
           </Stack>
         </ModalBody>
       </ModalContent>
@@ -36,3 +37,7 @@ export const DetailsModal = (props) => {
   )
 }
 
+const SBtn = styled.button`
+  background-color:#87ecdb;
+  box-shadow: 0 4px 0 #74cabc;;
+`
