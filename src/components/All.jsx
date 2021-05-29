@@ -23,6 +23,7 @@ export const All = () => {
   const onClickOpen = (i) => {
     onSelectState({ allState, i, onOpen });
   }
+  
 
 
   return (
