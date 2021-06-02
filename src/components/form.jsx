@@ -5,14 +5,21 @@ import { Footer } from '../organism/Footer'
 import { InputContext } from '../provider/InputProvider';
 import { Image } from './Image';
 
+import { useDispatch, useSelector } from "react-redux";
+import { todoSlice } from "../provider/todoSlice";
+
 export const Form = () => {
   const {onClickAdd} = useContext(InputContext);
-
   const [ name, setName ] = useState("");
   const [ tel, setTel ] = useState("");
   const [ streetAddress, setStreetAddress ] = useState("");
   const [memo, setMemo] = useState("");
   const [category, setCategory] = useState("");
+
+  const dispatch = useDispatch();
+  const todos = useSelector(state => state.todos);
+
+  const pushTodo = () => dispatch(todoSlice.actions.pushTodo());
 
   return (
     <SLayout>
@@ -36,7 +43,7 @@ export const Form = () => {
       <label>メモ</label>
       <textarea placeholder="メモ" value={memo} onChange={(e) => {setMemo(e.target.value)}}></textarea>
 
-      <button type="button" onClick={() => onClickAdd(name,tel,streetAddress,setName,setTel,setStreetAddress,memo,setMemo,category,setCategory) }>登録</button>
+      <button type="button" onClick={pushTodo}>登録</button>
     </SForm>
     <Footer />
     </SLayout>
