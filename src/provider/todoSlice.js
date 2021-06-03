@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { todos } from '../provider/todoSlice'
+
 
 export const todoSlice = createSlice({
   name: 'todo',
@@ -8,7 +8,7 @@ export const todoSlice = createSlice({
   },
   reducers: {
     pushTodo(state, action) {
-      todos = [...state.todos, action];
+      state.todos = [...state.todos, action.payload];
     },
   },
 })
