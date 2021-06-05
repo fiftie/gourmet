@@ -17,7 +17,12 @@ export const Form = () => {
   const dispatch = useDispatch();
   // const todos = useSelector(state => state.todos);
 
-  const pushTodo = () => dispatch(todoSlice.actions.pushTodo());
+  const pushTodo = () => dispatch(todoSlice.actions.pushTodo({
+    name,
+    tel,
+    streetAddress,
+    memo,
+  }));
 
   return (
     <SLayout>
