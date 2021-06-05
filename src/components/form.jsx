@@ -41,7 +41,7 @@ export const Form = () => {
       <label>メモ</label>
       <textarea placeholder="メモ" value={memo} onChange={(e) => {setMemo(e.target.value)}}></textarea>
 
-      <button type="button" onClick={() => dispatch(pushTodo())}>登録</button>
+      <button type="button" onClick={pushTodo}>登録</button>
     </SForm>
     <Footer />
     </SLayout>
