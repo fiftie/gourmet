@@ -17,7 +17,12 @@ export const Form = () => {
   const dispatch = useDispatch();
   // const todos = useSelector(state => state.todos);
 
-  const pushTodo = () => dispatch(todoSlice.actions.pushTodo());
+  const pushTodo = () => dispatch(todoSlice.actions.pushTodo({
+    name,
+    tel,
+    streetAddress,
+    memo,
+  }));
 
   return (
     <SLayout>
@@ -41,7 +46,7 @@ export const Form = () => {
       <label>メモ</label>
       <textarea placeholder="メモ" value={memo} onChange={(e) => {setMemo(e.target.value)}}></textarea>
 
-      <button type="button" onClick={() => dispatch(pushTodo())}>登録</button>
+      <button type="button" onClick={pushTodo}>登録</button>
     </SForm>
     <Footer />
     </SLayout>

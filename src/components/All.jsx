@@ -7,12 +7,14 @@ import { Footer } from "../organism/Footer";
 import { useDisclosure } from "@chakra-ui/react";
 import { DetailsModal } from "../organism/DetailsModal";
 import { useSelect } from "../hooks/useSelect";
+import {useSelector} from "react-redux";
 
 export const All = () => {
   const { allState, setAllState } = useContext(InputContext);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { onSelectState, selectedState } = useSelect();
-  
+  const { todos } = useSelector((state) => state.todo);
+
 
   const onClickDelete = (i) => {
     const newAllState = [...allState];
@@ -23,7 +25,7 @@ export const All = () => {
   const onClickOpen = (i) => {
     onSelectState({ allState, i, onOpen });
   }
-  
+
 
 
   return (
@@ -32,7 +34,7 @@ export const All = () => {
     <SH2>全て</SH2>
     <SUl>
       {
-        allState.map((todo, i) => {
+        todos.map((todo, i) => {
           return(
             <SLi key={i} onClick={() => onClickOpen(i)}>
               <img src={testimg} alt="イメージ画像" />
