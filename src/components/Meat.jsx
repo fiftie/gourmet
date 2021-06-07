@@ -15,7 +15,7 @@ export const Meat = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { onSelectState, selectedState } = useMeatSelect();
 
-  const { todos } = useSelector((state) => state.todo);
+  const { meats } = useSelector((state) => state.meats);
 
   const onClickDelete = (i) => {
     const newMeatState = [...meatState];
@@ -34,7 +34,7 @@ export const Meat = () => {
         <SH2>肉類</SH2>
         <SUl>
         {
-        todos.map((todo, i) => {
+        meats.map((todo, i) => {
           return(
             <SLi key={i} onClick={() => onClickOpen(i)}>
               <img src={testimg} alt="イメージ画像" />

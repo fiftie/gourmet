@@ -3,9 +3,9 @@ import styled from "styled-components";
 import { Header } from '../organism/Header'
 import { Footer } from '../organism/Footer'
 import { Image } from './Image';
-
 import { useDispatch } from "react-redux";
 import { todoSlice } from "../provider/todoSlice";
+import { meatSlice } from "../provider/meatSlice";
 
 export const Form = () => {
   const [ name, setName ] = useState("");
@@ -15,13 +15,6 @@ export const Form = () => {
   const [category, setCategory] = useState("");
 
   const dispatch = useDispatch();
-  
-  // const test = () => {
-  //   if(name === ""){
-  //     alert("店名を入力してください")
-  //     return
-  //   }
-  // }
 
   const pushTodo = () => {
     if(name === ""){
@@ -29,18 +22,35 @@ export const Form = () => {
       return
     };
     dispatch(todoSlice.actions.pushTodo({
-      test,
       name,
       tel,
       streetAddress,
       memo
     }),
+      pushMeat(),
       setName(""),
       setTel(""),
       setStreetAddress(""),
       setMemo(""),
       setCategory("")
     );
+  }
+
+  const pushMeat = () => {
+    if(category === "meat"){
+      dispatch(meatSlice.actions.pushMeat({
+        name,
+        tel,
+        streetAddress,
+        memo
+      }),
+        setName(""),
+        setTel(""),
+        setStreetAddress(""),
+        setMemo(""),
+        setCategory("")
+      );
+    }
   }
 
   return (
