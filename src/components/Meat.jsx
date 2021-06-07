@@ -7,12 +7,15 @@ import { Header } from '../organism/Header'
 import { InputContext } from "../provider/InputProvider";
 import { useDisclosure } from "@chakra-ui/react";
 import { useMeatSelect } from "../hooks/useSelect";
+import {useSelector} from "react-redux";
 
 
 export const Meat = () => {
   const { meatState, setMeatState } = useContext(InputContext);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { onSelectState, selectedState } = useMeatSelect();
+
+  const { todos } = useSelector((state) => state.todo);
 
   const onClickDelete = (i) => {
     const newMeatState = [...meatState];
@@ -31,7 +34,7 @@ export const Meat = () => {
         <SH2>肉類</SH2>
         <SUl>
         {
-        meatState.map((todo, i) => {
+        todos.map((todo, i) => {
           return(
             <SLi key={i} onClick={() => onClickOpen(i)}>
               <img src={testimg} alt="イメージ画像" />

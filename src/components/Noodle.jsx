@@ -7,11 +7,15 @@ import { Header } from '../organism/Header'
 import { InputContext } from "../provider/InputProvider";
 import { useDisclosure } from "@chakra-ui/react";
 import { useNoodleSelect } from "../hooks/useSelect";
+import {useSelector} from "react-redux";
+
 
 export const Noodle = () => {
   const { noodleState, setNoodleState } = useContext(InputContext);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { onSelectState, selectedState } = useNoodleSelect();
+
+  const { todos } = useSelector((state) => state.todo);
 
   const onClickDelete = (i) => {
     const newNoodleState = [...noodleState];
@@ -29,7 +33,7 @@ export const Noodle = () => {
         <SH2>麺類</SH2>
         <SUl>
         {
-        noodleState.map((todo, i) => {
+        todos.map((todo, i) => {
           return(
             <SLi key={i} onClick={() => onClickOpen(i)}>
               <img src={testimg} alt="イメージ画像" />

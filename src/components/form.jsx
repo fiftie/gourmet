@@ -1,10 +1,10 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import styled from "styled-components";
 import { Header } from '../organism/Header'
 import { Footer } from '../organism/Footer'
 import { Image } from './Image';
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { todoSlice } from "../provider/todoSlice";
 
 export const Form = () => {
@@ -15,9 +15,33 @@ export const Form = () => {
   const [category, setCategory] = useState("");
 
   const dispatch = useDispatch();
-  // const todos = useSelector(state => state.todos);
+  
+  // const test = () => {
+  //   if(name === ""){
+  //     alert("店名を入力してください")
+  //     return
+  //   }
+  // }
 
-  const pushTodo = () => dispatch(todoSlice.actions.pushTodo());
+  const pushTodo = () => {
+    if(name === ""){
+      alert("店名を入力してください")
+      return
+    };
+    dispatch(todoSlice.actions.pushTodo({
+      test,
+      name,
+      tel,
+      streetAddress,
+      memo
+    }),
+      setName(""),
+      setTel(""),
+      setStreetAddress(""),
+      setMemo(""),
+      setCategory("")
+    );
+  }
 
   return (
     <SLayout>
