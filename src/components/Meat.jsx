@@ -15,7 +15,7 @@ export const Meat = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { onSelectState, selectedState } = useMeatSelect();
 
-  const { meats } = useSelector((state) => state.meats);
+  const { meats } = useSelector((state) => state.todo);
 
   const onClickDelete = (i) => {
     const newMeatState = [...meatState];

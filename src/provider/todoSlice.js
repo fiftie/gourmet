@@ -4,14 +4,26 @@ export const todoSlice = createSlice({
   name: 'todo',
   initialState: {
     todos:[],
+    meats:[],
+    fishs:[],
+    noodles:[]
   },
   reducers: {
     pushTodo(state, action) {
       state.todos = [...state.todos, action.payload];
+    },
+    pushMeat(state, action) {
+      state.meats = [...state.meats, action.payload];
+    },
+    pushFish(state, action) {
+      state.fishs = [...state.fishs, action.payload];
+    },
+    pushNoodle(state, action) {
+      state.noodles = [...state.noodles, action.payload];
     }
   }
 })
 
-export const { pushTodo } = todoSlice.actions
+export const { pushTodo, pushMeat, pushFish, pushNoodle } = todoSlice.actions
 
 export default todoSlice.reducer

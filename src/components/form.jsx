@@ -5,7 +5,7 @@ import { Footer } from '../organism/Footer'
 import { Image } from './Image';
 import { useDispatch } from "react-redux";
 import { todoSlice } from "../provider/todoSlice";
-import { meatSlice } from "../provider/meatSlice";
+
 
 export const Form = () => {
   const [ name, setName ] = useState("");
@@ -18,7 +18,7 @@ export const Form = () => {
 
   const pushTodo = () => {
     if(name === ""){
-      alert("店名を入力してください")
+      alert("店名を入力してください");
       return
     };
     dispatch(todoSlice.actions.pushTodo({
@@ -28,6 +28,8 @@ export const Form = () => {
       memo
     }),
       pushMeat(),
+      pushFish(),
+      pushNoodle(),
       setName(""),
       setTel(""),
       setStreetAddress(""),
@@ -38,7 +40,41 @@ export const Form = () => {
 
   const pushMeat = () => {
     if(category === "meat"){
-      dispatch(meatSlice.actions.pushMeat({
+      dispatch(todoSlice.actions.pushMeat({
+        name,
+        tel,
+        streetAddress,
+        memo
+      }),
+        setName(""),
+        setTel(""),
+        setStreetAddress(""),
+        setMemo(""),
+        setCategory("")
+      );
+    }
+  }
+
+  const pushFish = () => {
+    if(category === "fish"){
+      dispatch(todoSlice.actions.pushFish({
+        name,
+        tel,
+        streetAddress,
+        memo
+      }),
+        setName(""),
+        setTel(""),
+        setStreetAddress(""),
+        setMemo(""),
+        setCategory("")
+      );
+    }
+  }
+
+  const pushNoodle = () => {
+    if(category === "noodle"){
+      dispatch(todoSlice.actions.pushNoodle({
         name,
         tel,
         streetAddress,

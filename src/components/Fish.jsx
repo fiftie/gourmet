@@ -14,7 +14,7 @@ export const Fish = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { onSelectState, selectedState } = useFishSelect();
 
-  const { todos } = useSelector((state) => state.todo);
+  const { fishs } = useSelector((state) => state.todo);
 
   const onClickDelete = (i) => {
     const newFishState = [...fishState];
@@ -33,7 +33,7 @@ export const Fish = () => {
         <SH2>魚類</SH2>
         <SUl>
         {
-        todos.map((todo, i) => {
+        fishs.map((todo, i) => {
           return(
             <SLi key={i} onClick={() => onClickOpen(i)}>
               <img src={testimg} alt="イメージ画像" />
