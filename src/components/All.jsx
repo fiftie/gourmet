@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import testimg from "../image/Gourmet.jpeg";
 import styled from "styled-components";
 import { InputContext } from "../provider/InputProvider";
@@ -9,23 +9,21 @@ import { DetailsModal } from "../organism/DetailsModal";
 import { useSelect } from "../hooks/useSelect";
 import {useSelector} from "react-redux";
 
+
 export const All = () => {
   const { allState, setAllState } = useContext(InputContext);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { onSelectState, selectedState } = useSelect();
-  
+
   const { todos } = useSelector((state) => state.todo);
+  const [todosState, setTodosState] = useState(todos);
 
   const onClickDelete = (i) => {
-    const newAllState = [...allState];
-    newAllState.splice(i,1);
-    setAllState(newAllState);
+    const newtodos = [...todosState];
+    newtodos.splice(i,1);
+    setTodosState(newtodos);
+    console.log("newtodos",newtodos);
   }
-
-  const onClickOpen = (i) => {
-    onSelectState({ allState, i, onOpen });
-  }
-  
 
 
   return (
@@ -34,9 +32,9 @@ export const All = () => {
     <SH2>全て</SH2>
     <SUl>
       {
-        todos.map((todo, i) => {
+        todosState.map((todo, i) => {
           return(
-            <SLi key={i} onClick={() => onClickOpen(i)}>
+            <SLi key={i}>
               <img src={testimg} alt="イメージ画像" />
               <h3>{todo.name}</h3>
               <p>{todo.tel}</p>
