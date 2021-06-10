@@ -16,15 +16,33 @@ export const All = () => {
   const { onSelectState, selectedState } = useSelect();
 
   const { todos } = useSelector((state) => state.todo);
-  const [todosState, setTodosState] = useState(todos);
+  
+
+  // const onClickDelete = (i) => {
+  //   todos.filter(todo => {
+  //     return todo[i] !== i;
+  //   })
+  //   console.log(todos);
+  // }
 
   const onClickDelete = (i) => {
-    const newtodos = [...todosState];
+    const newtodos = [...todos];
     newtodos.splice(i,1);
-    setTodosState(newtodos);
-    console.log("newtodos",newtodos);
+    console.log(newtodos);
   }
 
+  // const onClickDelete = (i) => {
+  //   todos.forEach((todo,i) => {
+  //     if(todo === i) {
+  //       todos.splice(i, 1);
+  //     }
+  //   });
+  // }
+
+
+
+  
+  
 
   return (
     <>
@@ -32,7 +50,7 @@ export const All = () => {
     <SH2>全て</SH2>
     <SUl>
       {
-        todosState.map((todo, i) => {
+        todos.map((todo, i) => {
           return(
             <SLi key={i}>
               <img src={testimg} alt="イメージ画像" />
@@ -40,7 +58,7 @@ export const All = () => {
               <p>{todo.tel}</p>
               <p>{todo.streetAddress}</p>
               <p>{todo.memo}</p>
-              <SBtn onClick={() => onClickDelete(i)}>削除</SBtn>
+              <SBtn onClick={(i) => onClickDelete(i)}>削除</SBtn>
             </SLi>
           )
         })
