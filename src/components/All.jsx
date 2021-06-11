@@ -8,6 +8,8 @@ import { useDisclosure } from "@chakra-ui/react";
 import { DetailsModal } from "../organism/DetailsModal";
 import { useSelect } from "../hooks/useSelect";
 import {useSelector} from "react-redux";
+import { useDispatch } from "react-redux";
+import { deleteTodo } from "../provider/todoSlice";
 
 
 export const All = () => {
@@ -16,33 +18,13 @@ export const All = () => {
   const { onSelectState, selectedState } = useSelect();
 
   const { todos } = useSelector((state) => state.todo);
-  
-
-  // const onClickDelete = (i) => {
-  //   todos.filter(todo => {
-  //     return todo[i] !== i;
-  //   })
-  //   console.log(todos);
-  // }
+  const dispatch = useDispatch();
 
   const onClickDelete = (i) => {
     const newtodos = [...todos];
     newtodos.splice(i,1);
-    console.log(newtodos);
+    dispatch(deleteTodo(newtodos));
   }
-
-  // const onClickDelete = (i) => {
-  //   todos.forEach((todo,i) => {
-  //     if(todo === i) {
-  //       todos.splice(i, 1);
-  //     }
-  //   });
-  // }
-
-
-
-  
-  
 
   return (
     <>
@@ -58,7 +40,7 @@ export const All = () => {
               <p>{todo.tel}</p>
               <p>{todo.streetAddress}</p>
               <p>{todo.memo}</p>
-              <SBtn onClick={(i) => onClickDelete(i)}>削除</SBtn>
+              <SBtn onClick={() => onClickDelete(i)}>削除</SBtn>
             </SLi>
           )
         })

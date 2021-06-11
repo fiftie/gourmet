@@ -20,10 +20,13 @@ export const todoSlice = createSlice({
     },
     pushNoodle(state, action) {
       state.noodles = [...state.noodles, action.payload];
+    },
+    deleteTodo(state,actuon) {
+      state.todos = [...actuon.payload];
     }
   }
 })
 
-export const { pushTodo, pushMeat, pushFish, pushNoodle } = todoSlice.actions
+export const { pushTodo, pushMeat, pushFish, pushNoodle, deleteTodo } = todoSlice.actions
 
 export default todoSlice.reducer
