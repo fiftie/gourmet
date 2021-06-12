@@ -1,18 +1,93 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import styled from "styled-components";
 import { Header } from '../organism/Header'
 import { Footer } from '../organism/Footer'
-import { InputContext } from '../provider/InputProvider';
 import { Image } from './Image';
+import { useDispatch } from "react-redux";
+import { todoSlice } from "../provider/todoSlice";
+
 
 export const Form = () => {
-  const {onClickAdd} = useContext(InputContext);
-
   const [ name, setName ] = useState("");
   const [ tel, setTel ] = useState("");
   const [ streetAddress, setStreetAddress ] = useState("");
   const [memo, setMemo] = useState("");
   const [category, setCategory] = useState("");
+
+  const dispatch = useDispatch();
+
+  const pushTodo = () => {
+    if(name === ""){
+      alert("店名を入力してください");
+      return
+    };
+    dispatch(todoSlice.actions.pushTodo({
+      name,
+      tel,
+      streetAddress,
+      memo
+    }),
+      pushMeat(),
+      pushFish(),
+      pushNoodle(),
+      setName(""),
+      setTel(""),
+      setStreetAddress(""),
+      setMemo(""),
+      setCategory("")
+    );
+  }
+
+  const pushMeat = () => {
+    if(category === "meat"){
+      dispatch(todoSlice.actions.pushMeat({
+        name,
+        tel,
+        streetAddress,
+        memo
+      }),
+        setName(""),
+        setTel(""),
+        setStreetAddress(""),
+        setMemo(""),
+        setCategory("")
+      );
+    }
+  }
+
+  const pushFish = () => {
+    if(category === "fish"){
+      dispatch(todoSlice.actions.pushFish({
+        name,
+        tel,
+        streetAddress,
+        memo
+      }),
+        setName(""),
+        setTel(""),
+        setStreetAddress(""),
+        setMemo(""),
+        setCategory("")
+      );
+    }
+  }
+
+  const pushNoodle = () => {
+    if(category === "noodle"){
+      dispatch(todoSlice.actions.pushNoodle({
+        name,
+        tel,
+        streetAddress,
+        memo
+      }),
+        setName(""),
+        setTel(""),
+        setStreetAddress(""),
+        setMemo(""),
+        setCategory("")
+      );
+    }
+  }
 
   return (
     <SLayout>
@@ -36,7 +111,7 @@ export const Form = () => {
       <label>メモ</label>
       <textarea placeholder="メモ" value={memo} onChange={(e) => {setMemo(e.target.value)}}></textarea>
 
-      <button type="button" onClick={() => onClickAdd(name,tel,streetAddress,setName,setTel,setStreetAddress,memo,setMemo,category,setCategory) }>登録</button>
+      <button type="button" onClick={pushTodo}>登録</button>
     </SForm>
     <Footer />
     </SLayout>

@@ -7,16 +7,22 @@ import { Header } from '../organism/Header'
 import { InputContext } from "../provider/InputProvider";
 import { useDisclosure } from "@chakra-ui/react";
 import { useFishSelect } from "../hooks/useSelect";
+import {useSelector} from "react-redux";
+import { useDispatch } from "react-redux";
+import { deleteFish } from "../provider/todoSlice";
 
 export const Fish = () => {
   const { fishState, setFishState } = useContext(InputContext);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { onSelectState, selectedState } = useFishSelect();
 
+  const { fishs } = useSelector((state) => state.todo);
+  const dispatch = useDispatch();
+
   const onClickDelete = (i) => {
-    const newFishState = [...fishState];
+    const newFishState = [...fishs];
     newFishState.splice(i,1);
-    setFishState(newFishState);
+    dispatch(deleteFish(newFishState))
   }
 
   const onClickOpen = (i) => {
@@ -30,9 +36,9 @@ export const Fish = () => {
         <SH2>魚類</SH2>
         <SUl>
         {
-        fishState.map((todo, i) => {
+        fishs.map((todo, i) => {
           return(
-            <SLi key={i} onClick={() => onClickOpen(i)}>
+            <SLi key={i}>
               <img src={testimg} alt="イメージ画像" />
               <h3>{todo.name}</h3>
               <p>{todo.tel}</p>
