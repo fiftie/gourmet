@@ -21,12 +21,21 @@ export const todoSlice = createSlice({
     pushNoodle(state, action) {
       state.noodles = [...state.noodles, action.payload];
     },
-    deleteTodo(state,actuon) {
-      state.todos = [...actuon.payload];
+    deleteTodo(state,action, i) {
+      state.todos = [...action.payload];
+    },
+    deleteMeat(state,action) {
+      state.meats = [...action.payload];
+    },
+    deleteFish(state,action) {
+      state.fishs = [...action.payload];
+    },
+    deleteNoodle(state,action) {
+      state.noodles = [...action.payload];
     }
   }
 })
 
-export const { pushTodo, pushMeat, pushFish, pushNoodle, deleteTodo } = todoSlice.actions
+export const { pushTodo, pushMeat, pushFish, pushNoodle, deleteTodo, deleteMeat, deleteFish, deleteNoodle } = todoSlice.actions
 
 export default todoSlice.reducer

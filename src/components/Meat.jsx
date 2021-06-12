@@ -8,7 +8,8 @@ import { InputContext } from "../provider/InputProvider";
 import { useDisclosure } from "@chakra-ui/react";
 import { useMeatSelect } from "../hooks/useSelect";
 import {useSelector} from "react-redux";
-
+import { useDispatch } from "react-redux";
+import { deleteMeat } from "../provider/todoSlice";
 
 export const Meat = () => {
   const { meatState, setMeatState } = useContext(InputContext);
@@ -16,11 +17,12 @@ export const Meat = () => {
   const { onSelectState, selectedState } = useMeatSelect();
 
   const { meats } = useSelector((state) => state.todo);
+  const dispatch = useDispatch();
 
   const onClickDelete = (i) => {
-    const newMeatState = [...meatState];
+    const newMeatState = [...meats];
     newMeatState.splice(i,1);
-    setMeatState(newMeatState);
+    dispatch(deleteMeat(newMeatState));
   }
 
   const onClickOpen = (i) => {
@@ -36,7 +38,7 @@ export const Meat = () => {
         {
         meats.map((todo, i) => {
           return(
-            <SLi key={i} onClick={() => onClickOpen(i)}>
+            <SLi key={i}>
               <img src={testimg} alt="イメージ画像" />
               <h3>{todo.name}</h3>
               <p>{todo.tel}</p>
